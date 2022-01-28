@@ -47,11 +47,11 @@
 
 - name: unpack vault
   become: false
-  run_once: true
   delegate_to: localhost
   unarchive:
     src: "{{ role_path }}/files/{{ _archive }}"
     dest: "{{ _archive_dir }}"
+    creates: "{{ _archive_dir }}/vault"
 
 - name: propagate vault binary
   copy:
