@@ -28,7 +28,7 @@ See [defaults/](defaults/) for details and examples.
 
 - owner of vault process and files
 
-#### `vault_grop`
+#### `vault_group`
 
 - group of `vault_user`
 
@@ -46,7 +46,7 @@ See [defaults/](defaults/) for details and examples.
 
 #### `skip_handlers`
 
-- skipt vault restart/reload - useful when building images with Packer
+- skip vault restart/reload - useful when building images with Packer
 
 ## Tags
 

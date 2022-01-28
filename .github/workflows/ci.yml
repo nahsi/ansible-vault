@@ -62,10 +62,10 @@ jobs:
         id: cache
 
       - uses: syphar/restore-pip-download-cache@v1
-        if: steps.cache.outputs.cache-hit != true
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: "Install dependencies"
-        if: steps.cache.outputs.cache-hit != true
+        if: steps.cache.outputs.cache-hit != 'true'
         run: pip3 install --upgrade -r requirements.txt
 
       - name: "Run ${{ matrix.scenario }} scenario"
