@@ -1,0 +1,42 @@
+name: molecule
+
+on:
+  pull_request:
+    branches:
+      - "master"
+    paths-ignore:
+      - ".github/**"
+      - "**.md"
+
+concurrency:
+  group: "ci-${{ github.head_ref }}"
+  cancel-in-progress: true
+
+env:
+  PY_COLORS: 1
+  ANSIBLE_FORCE_COLOR: 1
+
+jobs:
+  molecule:
+    name: "molecule tests"
+    runs-on: macos-10.15
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - uses: syphar/restore-virtualenv@v1
+￼       id: cache
+
+      - uses: syphar/restore-pip-download-cache@v1
+        if: steps.cache.outputs.cache-hit != true
+
+      - name: "Install dependencies"
+        if: steps.cache.outputs.cache-hit != true
+        run: pip3 install ansible molecule[vagrant] python-vagrant
+
+      - name: "Run ubuntu scenario"
+        run: molecule test --scenario-name ubuntu
