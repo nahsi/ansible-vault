@@ -1,0 +1,9 @@
+ansible
+jmespath
+wheel
+python-vagrant
+pytest
+pytest-testinfra
+molecule
+molecule-vagrant
+molecule[lint]

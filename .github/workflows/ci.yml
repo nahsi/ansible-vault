@@ -36,7 +36,7 @@ jobs:
 
       - name: "Install dependencies"
         if: steps.cache.outputs.cache-hit != true
-        run: pip3 install ansible molecule[vagrant] python-vagrant
+        run: pip3 install --upgrade -r requirements.txt
 
       - name: "Run ubuntu scenario"
         run: molecule test --scenario-name ubuntu
