@@ -20,6 +20,13 @@ jobs:
   molecule:
     name: "molecule tests"
     runs-on: macos-10.15
+
+    strategy:
+      matrix:
+        scenario:
+          - ubuntu
+          - gentoo
+
     steps:
       - uses: actions/checkout@v2
 
@@ -38,5 +45,5 @@ jobs:
         if: steps.cache.outputs.cache-hit != true
         run: pip3 install --upgrade -r requirements.txt
 
-      - name: "Run ubuntu scenario"
-        run: molecule test --scenario-name ubuntu
+      - name: "Run ${{ matrix.scenario }} scenario"
+        run: molecule test --scenario-name "${{ matrix.scenario }}"
