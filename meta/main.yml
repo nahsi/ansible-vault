@@ -3,7 +3,7 @@ galaxy_info:
   author: Anatoly Laskaris
   description: Role to manage HashiCorp Vault
   license: MIT
-  min_ansible_version: 2.11
+  min_ansible_version: 2.10
 
   platforms:
     - name: Alpine
