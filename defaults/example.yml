@@ -4,7 +4,6 @@
 #   log_level: "info"
 
 #   api_addr: !unsafe "http://{{ GetPrivateIP }}:8200"
-#   cluster_name: "infra-jp-aws"
 
 #   listener:
 #     tcp:
