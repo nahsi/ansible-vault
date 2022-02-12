@@ -74,6 +74,7 @@ vault_dirs:
 #### `skip_handlers`
 
 - skip Vault restart/reload - useful when building images with Packer
+- default: `false`
 
 ## Tags
 
