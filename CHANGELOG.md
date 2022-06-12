@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.3](https://github.com/nahsi/ansible-vault/compare/v1.0.2...v1.0.3) (2022-06-12)
+
+
+### Miscellaneous
+
+* bump actions/checkout from 2 to 3 ([#18](https://github.com/nahsi/ansible-vault/issues/18)) ([2333b50](https://github.com/nahsi/ansible-vault/commit/2333b5081c34c82bc896c3b8d93ac0cd7312abc7))
+* bump actions/setup-python from 2 to 3.1.0 ([#24](https://github.com/nahsi/ansible-vault/issues/24)) ([eee8026](https://github.com/nahsi/ansible-vault/commit/eee8026bc1de51518124794cb3dc3530dde1824c))
+* bump actions/setup-python from 3.1.0 to 3.1.2 ([#29](https://github.com/nahsi/ansible-vault/issues/29)) ([a85499c](https://github.com/nahsi/ansible-vault/commit/a85499c379b38b428dea50da693673d5d4ea4a37))
+* bump ansible from 5.3.0 to 5.6.0 ([#25](https://github.com/nahsi/ansible-vault/issues/25)) ([ff54719](https://github.com/nahsi/ansible-vault/commit/ff54719e3e6624021b0d52477bee43f415b45731))
+* bump ansible from 5.6.0 to 5.8.0 ([#32](https://github.com/nahsi/ansible-vault/issues/32)) ([60283d0](https://github.com/nahsi/ansible-vault/commit/60283d059aeaa372a3825c0e0cd42ed19898f27a))
+* bump jmespath from 0.10.0 to 1.0.0 ([#20](https://github.com/nahsi/ansible-vault/issues/20)) ([d36d546](https://github.com/nahsi/ansible-vault/commit/d36d546b4689659e9467310b84373821935f9f76))
+* bump pytest from 7.0.1 to 7.1.2 ([#27](https://github.com/nahsi/ansible-vault/issues/27)) ([9c9ba9d](https://github.com/nahsi/ansible-vault/commit/9c9ba9df2ceb7c1b2b128a0c63c660da7835a8bd))
+* bump pytest-testinfra from 6.6.0 to 6.7.0 ([#26](https://github.com/nahsi/ansible-vault/issues/26)) ([24dd9a3](https://github.com/nahsi/ansible-vault/commit/24dd9a3bb3905c1ce66e5f04ffeaf7328715ffa5))
+* bump python-vagrant from 0.5.15 to 1.0.0 ([#23](https://github.com/nahsi/ansible-vault/issues/23)) ([3eb586d](https://github.com/nahsi/ansible-vault/commit/3eb586d727b098cb44a356578db15fd4368775da))
+
 ### [1.0.2](https://github.com/nahsi/ansible-vault/compare/v1.0.1...v1.0.2) (2022-02-21)
 
 
