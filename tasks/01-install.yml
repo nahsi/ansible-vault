@@ -96,4 +96,4 @@
     name: vault
     enabled: true
     daemon_reload: true
-  when: not skip_enabled
+  when: not skip_enable
