@@ -62,11 +62,6 @@ vault_dirs:
 - url to get Vault archive from
 - default: `https://releases.hashicorp.com`
 
-#### `vault_service`
-
-- openrc service file
-- default: see [defaults/main.yml](https://github.com/nahsi/ansible-vault/blob/master/defaults/main.yml)
-
 #### `vault_unitfile`
 
 - systemd unit file
@@ -75,6 +70,11 @@ vault_dirs:
 #### `skip_handlers`
 
 - skip Vault restart/reload - useful when building images with Packer
+- default: `false`
+
+#### `skip_enable`
+
+- skip Vault enabling in systemd - useful when building images with Packer
 - default: `false`
 
 ## Tags

@@ -81,23 +81,6 @@
     mode: 0640
   notify: restart vault
 
-- name: create vault service file
-  tags: config
-  copy:
-    content: "{{ vault_service }}"
-    dest: "/etc/init.d/vault"
-    owner: root
-    group: root
-    mode: 0755
-  notify: restart vault
-  when: ansible_service_mgr == "openrc"
-
-- name: enable vault
-  service:
-    name: vault
-    enabled: true
-  when: ansible_service_mgr == "openrc"
-
 - name: create vault unit file
   tags: config
   copy:
@@ -107,11 +90,10 @@
     group: root
     mode: 0755
   notify: restart vault
-  when: ansible_service_mgr == "systemd"
 
 - name: enable vault
   systemd:
     name: vault
     enabled: true
     daemon_reload: true
-  when: ansible_service_mgr == "systemd"
+  when: not skip_enabled

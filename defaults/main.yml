@@ -1,4 +1,5 @@
 skip_handlers: false
+skip_enable: false
 
 vault_download_url: "https://releases.hashicorp.com"
 
@@ -21,47 +22,19 @@ vault_dirs:
   logs:
     path: "/var/log/vault"
 
-vault_service: |
-  #!/sbin/openrc-run
-
-  description="HashiCorp Vault - A tool for managing secrets"
-
-  group="${RC_SVCNAME}"
-  user="${RC_SVCNAME}"
-
-  supervisor="supervise-daemon"
-  pidfile="/run/${RC_SVCNAME}.pid"
-  command="/usr/bin/${RC_SVCNAME}"
-  command_args="server -config={{ vault_dir }}/vault.json -config={{ vault_dirs.configs.path }}"
-  command_background="true"
-  extra_started_commands="reload"
-
-  output_log="{{ vault_dirs.logs.path }}/vault.log"
-  error_log="{{ vault_dirs.logs.path }}/vault.log"
-
-  depend() {
-    need net
-  }
-
-  reload() {
-    ebegin "Reloading vault"
-    ${supervisor} ${RC_SVCNAME} --signal HUP --pidfile "${PIDFILE}"
-    eend $?
-  }
 
 vault_unit: |
   [Unit]
-  Description="HashiCorp Vault - A tool for managing secrets"
+  Description="HashiCorp Vault - A platform for managing secrets"
   Documentation=https://www.vaultproject.io/docs/
   Requires=network-online.target
   After=network-online.target
-  ConditionFileNotEmpty={{ vault_dir }}/vault.json
   StartLimitIntervalSec=60
   StartLimitBurst=3
 
   [Service]
-  User=vault
-  Group=vault
+  User={{ vault_user }}
+  Group={{ vault_group }}
   ProtectSystem=full
   ProtectHome=read-only
   PrivateTmp=yes
@@ -70,7 +43,7 @@ vault_unit: |
   AmbientCapabilities=CAP_IPC_LOCK
   CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
   NoNewPrivileges=yes
-  ExecStart=/usr//bin/vault server -config={{ vault_dir }}/vault.json -config={{ vault_dirs.configs.path }}
+  ExecStart=/usr/bin/vault server -config={{ vault_dir }}/vault.json -config={{ vault_dirs.configs.path }}
   ExecReload=/bin/kill --signal HUP $MAINPID
   KillMode=process
   KillSignal=SIGINT
